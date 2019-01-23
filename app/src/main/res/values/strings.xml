@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">PMDM-T5-Practica5</string>
+    <string name="toast">Toast</string>
+    <string name="notificacion">Notificación</string>
+    <string name="desplazamiento_horizontal">Horizontal</string>
+    <string name="desplazamiento_vertical">Vertical</string>
+    <string name="mensaje" >Mensaje</string>
+    <string name="buttonLanzarToast">Lanzar Toast</string>
+
+    <string-array name="spinnerHorizontal">
+        <item>Derecha</item>
+        <item>Izquierda</item>
+        <item>Centro</item>
+    </string-array>
+
+    <string-array name="spinnerVertical">
+        <item>Arriba</item>
+        <item>Abajo</item>
+        <item>Centro</item>
+    </string-array>
+    <string name="arriba">TOP</string>
+    <string name="debajo">BOTTOM</string>
+    <string name="izquierda">LEFT</string>
+    <string name="derecha">RIGHT</string>
+    <string name="centro">CENTER</string>
+    <string name="tituloToast">Configurar Toast</string>
+
+</resources>
+
+
