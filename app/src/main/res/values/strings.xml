@@ -4,7 +4,7 @@
     <string name="notificacion">Notificación</string>
     <string name="desplazamiento_horizontal">Horizontal</string>
     <string name="desplazamiento_vertical">Vertical</string>
-    <string name="mensaje" >Mensaje</string>
+    <string name="mensaje" >Nombre</string>
     <string name="buttonLanzarToast">Lanzar Toast</string>
 
     <string-array name="spinnerHorizontal">
@@ -18,11 +18,11 @@
         <item>Abajo</item>
         <item>Centro</item>
     </string-array>
-    <string name="arriba">TOP</string>
-    <string name="debajo">BOTTOM</string>
-    <string name="izquierda">LEFT</string>
-    <string name="derecha">RIGHT</string>
-    <string name="centro">CENTER</string>
+    <string name="arriba">arriba</string>
+    <string name="debajo">debajo</string>
+    <string name="izquierda">izquierda</string>
+    <string name="derecha">derecha</string>
+    <string name="centro">centro</string>
     <string name="tituloToast">Configurar Toast</string>
 
 </resources>
