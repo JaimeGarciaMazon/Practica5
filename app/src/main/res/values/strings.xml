@@ -4,7 +4,7 @@
     <string name="notificacion">Notificación</string>
     <string name="desplazamiento_horizontal">Horizontal</string>
     <string name="desplazamiento_vertical">Vertical</string>
-    <string name="mensaje" >Nombre</string>
+    <string name="mensaje">Nombre</string>
     <string name="buttonLanzarToast">Lanzar Toast</string>
 
     <string-array name="spinnerHorizontal">
@@ -24,6 +24,14 @@
     <string name="derecha">derecha</string>
     <string name="centro">centro</string>
     <string name="tituloToast">Configurar Toast</string>
+    <string name="title_activity_notificacion">NotificacionActivity</string>
+    <string name="t_tulo_del_mensaje">Tituto Mensaje</string>
+    <string name="texto_del_mensaje">Texto Mensaje</string>
+    <string name="segundos_para_que_salga_la_notificaci_n">Tiempo en Saltar la Notificacion</string>
+    <string name="enviar">enviar</string>
+    <string name="mostrar">mostrar</string>
+    <string name="medio">medio</string>
+    <string name="abajo">abajo</string>
 
 </resources>
 

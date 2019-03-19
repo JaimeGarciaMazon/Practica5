@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         buttonNotificacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), toastActivity.class);
+                Intent intent = new Intent(v.getContext(), NotificacionActivity.class);
                 startActivity(intent);
             }
         });

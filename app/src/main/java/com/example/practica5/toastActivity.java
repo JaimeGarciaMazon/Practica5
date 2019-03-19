@@ -1,79 +1,100 @@
 package com.example.practica5;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class toastActivity extends Activity {
-
-    Spinner spinnerHorizontal, spinnerVertical;
-    EditText editTextMensajeToast;
-    Map<String, String> mapaSpinnerOrientacion;
+public class toastActivity extends AppCompatActivity {
+    Button boton1;
+    EditText edit1;
+    EditText edit2;
+    EditText edit3;
+    RadioButton radio1;
+    RadioButton radio2;
+    RadioButton radio3;
+    RadioButton radio4;
+    RadioButton radio5;
+    RadioButton radio6;
+    int numero=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toast);
-        setTitle(R.string.tituloToast);
+        boton1 = findViewById(R.id.button2);
+        edit1 = findViewById(R.id.editText);
+        edit2 = findViewById(R.id.editText2);
+        edit3 = findViewById(R.id.editText3);
+        radio1 = findViewById(R.id.radioButton);
+        radio2 = findViewById(R.id.radioButton2);
+        radio3 = findViewById(R.id.radioButton3);
+        radio4 = findViewById(R.id.radioButton4);
+        radio5 = findViewById(R.id.radioButton5);
+        radio6 = findViewById(R.id.radioButton6);
+        boton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+               
+                if(edit1.getText().toString().isEmpty())
+                {
+                    edit1.setText("" +numero);
+                }
+                if(edit2.getText().toString().isEmpty())
+                {
+                    edit2.setText("" +numero);
+                }
+                if (!edit3.getText().toString().isEmpty())
+                {
 
-        spinnerHorizontal = findViewById(R.id.spinnerHorizontal);
-        spinnerVertical = findViewById(R.id.spinnerVertical);
-        editTextMensajeToast = findViewById(R.id.editTextMensajeToast);
+                    Toast toast1 = Toast.makeText(getApplicationContext(), edit3.getText(), Toast.LENGTH_SHORT);
+                    if(radio1.isChecked() && radio4.isChecked())
+                    {
+                        toast1.setGravity(Gravity.LEFT|Gravity.TOP,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio1.isChecked() && radio5.isChecked())
+                    {
+                        toast1.setGravity(Gravity.LEFT|Gravity.CENTER_VERTICAL,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio1.isChecked() && radio6.isChecked())
+                    {
+                        toast1.setGravity(Gravity.LEFT|Gravity.BOTTOM,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio2.isChecked() && radio4.isChecked())
+                    {
+                        toast1.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio2.isChecked() && radio5.isChecked())
+                    {
+                        toast1.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio2.isChecked() && radio6.isChecked())
+                    {
+                        toast1.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio3.isChecked() && radio4.isChecked())
+                    {
+                        toast1.setGravity(Gravity.RIGHT|Gravity.TOP,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio3.isChecked() && radio5.isChecked())
+                    {
+                        toast1.setGravity(Gravity.RIGHT|Gravity.CENTER_VERTICAL,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    else if(radio3.isChecked() && radio6.isChecked())
+                    {
+                        toast1.setGravity(Gravity.RIGHT|Gravity.BOTTOM,Integer.parseInt(edit1.getText().toString()) ,Integer.parseInt(edit2.getText().toString()) );
+                    }
+                    toast1.show();
+                }
+                else
+                {
 
-        mapaSpinnerOrientacion = new HashMap<String, String>() {{
-            put("Arriba", getString(R.string.arriba));
-            put("Abajo", getString(R.string.debajo));
-            put("Derecha", getString(R.string.derecha));
-            put("Izquierda", getString(R.string.izquierda));
-            put("Centro", getString(R.string.centro));
-        }};
-
-        ArrayAdapter<CharSequence> adapterHorizontal = ArrayAdapter.createFromResource(this,
-                R.array.spinnerHorizontal, android.R.layout.simple_spinner_item);
-        spinnerHorizontal.setAdapter(adapterHorizontal);
-
-        ArrayAdapter<CharSequence> adapterVertical = ArrayAdapter.createFromResource(this,
-                R.array.spinnerVertical, android.R.layout.simple_spinner_item);
-        spinnerVertical.setAdapter(adapterVertical);
-
-    }
-
-    public void lanzarToast(View view) {
-        String texto = editTextMensajeToast.getText().toString();
-        Toast t = Toast.makeText(this, texto, Toast.LENGTH_LONG);
-
-        int orientacionVertical = getOrientacion(spinnerVertical.getSelectedItem().toString());
-        int orientacionHorizontal = getOrientacion(spinnerHorizontal.getSelectedItem().toString());
-
-        t.setGravity(orientacionVertical | orientacionHorizontal , 0, 0);
-
-        t.show();
-    }
-
-    private int getOrientacion(String orientacion) {
-        int res = 0;
-        switch (mapaSpinnerOrientacion.get(orientacion)) {
-            case "TOP":
-                res = Gravity.TOP;
-                break;
-            case "BOTTOM":
-                res = Gravity.BOTTOM;
-                break;
-            case "LEFT":
-                res = Gravity.LEFT;
-                break;
-            case "RIGHT":
-                res = Gravity.RIGHT;
-                break;
-        }
-        return res;
+                }
+            }
+        });
     }
 }
